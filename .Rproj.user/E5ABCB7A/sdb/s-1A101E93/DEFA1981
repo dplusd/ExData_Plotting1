@@ -1,0 +1,17 @@
+{
+    "contents" : "source(\"DataLoader.R\")\n\n#load data\ndata <- loadData()$data\n    \n\n#open target file\npng(\"plot4.png\")\n\n#set num of plots (2X2)\npar(mfrow = c(2, 2))\n\n#global active power\nplot(data$DateTime, data$Global_active_power, type=\"l\", ylab=\"Global Ative Power (kilowatts)\", xlab=\"\")\n\n#voltage\nplot(data$DateTime, data$Voltage, type=\"l\", ylab=\"Voltage\", xlab=\"\")\n\n#Sub_metering\nplot(data$DateTime, apply(data[, c(\"Sub_metering_1\", \"Sub_metering_2\", \"Sub_metering_3\")], 1, max), type=\"n\", ylab=\"Global Ative Power (kilowatts)\", xlab=\"\")\nlines(data$DateTime, data$Sub_metering_1)\nlines(data$DateTime, data$Sub_metering_2,col=\"blue\")\nlines(data$DateTime, data$Sub_metering_3, col=\"red\")\nlegend(\"topright\", lwd=2, col=c(\"black\", \"blue\", \"red\"), legend=c(\"Sub_mastering_1\", \"Sub_mastering_2\", \"Sub_mastering_3\"))\n\n#Global Reactive Power\nplot(data$DateTime, data$Global_reactive_power, type=\"l\", ylab=\"Global Reactive Power\", xlab=\"\")\n\n#close device\ndev.off()\n\n\n",
+    "created" : 1452368477222.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1043821149",
+    "id" : "DEFA1981",
+    "lastKnownWriteTime" : 1452370239,
+    "path" : "~/Didi/Coursera/Exploratory/Week1/ExData_Plotting1/Plot4.R",
+    "project_path" : "Plot4.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "\nsource(\"DataLoader.R\")\n\n\n#load data\ndata <- loadData()$data\n#one plot \npar(mfrow = c(1, 1))\n\n#open target file\npng(\"plot3.png\" , width=480, height=480)\n\n#init plot by estimating max value from each of three attribute attribute\nplot(data$DateTime, apply(data[, c(\"Sub_metering_1\", \"Sub_metering_2\", \"Sub_metering_3\")], 1, max), type=\"n\", ylab=\"Global Ative Power (kilowatts)\", xlab=\"\", mar=c(1, 4, 2, 2))\n#draw lines\nlines(data$DateTime, data$Sub_metering_1)\nlines(data$DateTime, data$Sub_metering_2,col=\"blue\")\nlines(data$DateTime, data$Sub_metering_3, col=\"red\")\n#add legend\nlegend(\"topright\", lwd=2, col=c(\"black\", \"blue\", \"red\"), legend=c(\"Sub_mastering_1\", \"Sub_mastering_2\", \"Sub_mastering_3\"))\n#close device\ndev.off()        \n",
+    "created" : 1452368472004.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3113096615",
+    "id" : "B6FE23F8",
+    "lastKnownWriteTime" : 1452369331,
+    "path" : "~/Didi/Coursera/Exploratory/Week1/ExData_Plotting1/Plot3.R",
+    "project_path" : "Plot3.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

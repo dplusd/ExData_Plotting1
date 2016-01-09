@@ -1,0 +1,17 @@
+{
+    "contents" : "\nsource(\"DataLoader.R\")\n\n\ndata <- loadData()$data\n#one plot \npar(mfrow = c(1, 1))\npng(\"plot1.png\" , width=480, height=480)\nhist(data$Global_active_power, col=\"darkorange2\", mar=c(4,4,2,2), main=\"Global active power\", xlab=\"Global active power (killowats)\")\ndev.off()        \n",
+    "created" : 1452368454475.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2922658741",
+    "id" : "2A6CE69F",
+    "lastKnownWriteTime" : 1452369302,
+    "path" : "~/Didi/Coursera/Exploratory/Week1/ExData_Plotting1/Plot1.R",
+    "project_path" : "Plot1.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

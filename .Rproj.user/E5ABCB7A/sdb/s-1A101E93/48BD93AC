@@ -1,0 +1,17 @@
+{
+    "contents" : "\nsource(\"DataLoader.R\")\n\n#load data\ndata <- loadData()$data\n#one plot \npar(mfrow = c(1, 1))\n#open device\npng(\"plot2.png\" , width=480, height=480)\n#plot\nplot(data$DateTime, data$Global_active_power, type=\"l\", ylab=\"Global Ative Power (kilowatts)\", xlab=\"\", mar=c(1, 4, 2, 2), mfrow=c(1,1))\n#close device\ndev.off()        \n\n\n\n",
+    "created" : 1452368459161.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "293368273",
+    "id" : "48BD93AC",
+    "lastKnownWriteTime" : 1452369325,
+    "path" : "~/Didi/Coursera/Exploratory/Week1/ExData_Plotting1/Plot2.R",
+    "project_path" : "Plot2.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

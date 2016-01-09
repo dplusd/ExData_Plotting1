@@ -1,0 +1,17 @@
+{
+    "contents" : "\nloadData <- function() {\n    if(exists(\"hpcDataset\")) {\n        return (hpcDataset)\n    }\n    \n    fileHandle <- unz(\"exdata-data-household_power_consumption.zip\", \"household_power_consumption.txt\")\n    top1000Lines <-read.table(fileHandle, header=T, quote=\"\\\"\", sep=\";\", na.strings=\"?\", nrows=1000)\n    \n    numOfMB <- as.integer((object.size(top1000Lines) / 1000.0 *  2075259) / (1024^2))\n    print(paste(\"Full file size\", numOfMB, \"MB\"))\n    \n    \n    fileHandle <- unz(\"exdata-data-household_power_consumption.zip\", \"household_power_consumption.txt\")\n    lines <- grep(\"^[12]/2/2007.*\", readLines(fileHandle))\n    \n    startLine <- min(lines)\n    lineCount <- max(lines) - min(lines) + 1\n    fileHandle <- unz(\"exdata-data-household_power_consumption.zip\", \"household_power_consumption.txt\")\n    dataSet <- read.table(fileHandle, col.names = names(top1000Lines), header=F, quote=\"\\\"\", sep=\";\", na.strings=\"?\", skip=startLine, nrows=lineCount)\n    \n    if (length(lines) !=dim(dataSet)[1]) {\n        print(\"Error\")\n    }\n    \n    dataSet$DateTime <- strptime(paste(dataSet$Date,dataSet$Time), format=\"%d/%m/%Y %H:%M:%S\")\n    dataSet$Date <- NULL\n    dataSet$Time <- NULL\n    hpcDataset <<-list(SizeMB = numOfMB, data = dataSet)\n    closeAllConnections()\n    return(hpcDataset)\n}",
+    "created" : 1452368442828.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4287688925",
+    "id" : "6C0C9CCB",
+    "lastKnownWriteTime" : 1452243021,
+    "path" : "~/Didi/Coursera/Exploratory/Week1/ExData_Plotting1/DataLoader.R",
+    "project_path" : "DataLoader.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
